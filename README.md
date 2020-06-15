@@ -5,4 +5,4 @@ Code base corresponding to thesis "Weighted Neural Collaborative Filtering:  Dee
 This repository estimates and evaluates three Collaborative Filtering methods for implicit recommendation on a dataset of online grocery purchases. Methods are WMF (using ALS optimization), WMF (using eALS optimization) and NeuMF. For details, see the master thesis of Stan Hennekes (2020). 
 
 ## Installation / get started
-Required packages and versions are included in a .pip file. Scripts are built on Python 3.7 on Windows.
+Required packages and versions are included in a .pip file. Scripts are built on Python 3.7 on Windows. A config file is included to change the most important settings. 
