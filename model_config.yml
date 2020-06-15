@@ -1,0 +1,44 @@
+## Options to run different modules
+# Evaluation
+evaluate: true  # evaluate model
+popularity_baseline: true  # compare to ItemPop
+random_baseline: true # compare to random recommendations
+# Intermediate results and checks
+visualize_data: true  # show histograms of item/user popularity and visualization of train and test set
+int_reclists: true  # interpret predicted relevance into recommended lists and write to local file
+explore: false  # calculate some properties of the predicted relevances
+# Save and load results
+dump_train_test: true  # write train and test csr matrix to local file
+create_new_model: true  # retrain model or use existing one
+
+## Different options for model
+cut_most_pop_items: true  # leave most popular items out of model altogether
+cut_most_pop_items_in_eval: false  # leave most popular items out of evaluation
+both_in_train_and_test: true  # require every user to have interactions in test period as well
+# Set model params
+k: 20  # length of a recommended list
+random_seed: 1
+alpha_confidence: 1 #1 for NeuWMF #12 for WMF #-1 gives just relative interactions (no log transform)
+c_0: 1000 #1000 for NeuWMF #50000 for WMF #Not relevant for ALS
+eta: 0.5
+# Parameters specific for eALS
+use_confidence: true
+n_factors: 20
+n_iterations: 15
+lambda_reg: 500
+rescale_B: true # Map resulting Bhat to [0,1]
+# Parameters specific for NeuMF
+use_pos_weights: true
+use_neg_weights: false
+loss: "l2_loss"
+use_info: false # Add extra information to NeuWMF model
+
+## Choose set to work with
+item_popularity_threshold: 50
+min_articles_purchased: 50
+max_articles_purchased: null
+top_users_percentage: null # top percentage of most active users to use in model (or null)
+take_sample: false  # take random subsample of users and items (for quick exploration of the model, not for good results)
+use_confidence_in_data_preparation: false  # already add confidence levels in prepare_data. For ALS: use_confidence needs to be True, for NeuMF and eALS it could be False
+split_train_test_query: true  # use the version where a train and test set are based on a split in time.
+train_percentage: 0.5  # Only relevant if split is not done on time
